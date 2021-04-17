@@ -28,14 +28,17 @@ struct HalfPopover: View {
           Text("Overlay!")
             .transition(.move(edge: .bottom))
           
-          Button(action: {
-            withAnimation {
-              showDetails.toggle()
+          Button(
+            action: {
+              withAnimation {
+                showDetails.toggle()
+              }
+            },
+            label: {
+              Text("Close")
+                .foregroundColor(.white)
             }
-          }) {
-            Text("Close")
-              .foregroundColor(.white)
-          }
+          )
         }
       }
       .shadow(radius: 6)

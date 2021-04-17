@@ -8,24 +8,37 @@
 import SwiftUI
 
 struct BaseView: View {
-  @State private var showDetails = false
+  @State private var showPopover = false
   
   var body: some View {
     GeometryReader { geometry in
       ZStack {
-        Button(action: {
-          withAnimation {
-            self.showDetails.toggle()
-          }
-        }) {
-          Text("Tap to show details")
+        VStack {
+          Spacer()
+          
+          Button(
+            action: {
+              withAnimation {
+                self.showPopover.toggle()
+              }
+            },
+            label: {
+              Text("Tap to show details")
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(6)
+                .foregroundColor(.white)
+            }
+          )
+          
+          Spacer()
         }
-        
-        if showDetails {
+
+        if showPopover {
           HalfPopover(
             width: geometry.size.width,
             height: geometry.size.height,
-            showDetails: $showDetails
+            showDetails: $showPopover
           )
         }
       }
