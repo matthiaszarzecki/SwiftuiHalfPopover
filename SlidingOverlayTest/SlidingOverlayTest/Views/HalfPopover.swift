@@ -26,8 +26,7 @@ struct HalfPopover: View {
         
         VStack {
           Text("Overlay!")
-            .transition(.move(edge: .bottom))
-          
+
           Button(
             action: {
               withAnimation {
